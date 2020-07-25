@@ -3,8 +3,11 @@ This is the backend for the youtube-mediaplayer. This is a very simple backend -
 For using this media player:
 
 1. Clone this repository
-2. The production build from the frontend has already been done (on the build folder)
-3. Push this into a service for i.e. Heroku
-4. Frontend is served from the build folder automatically
-5. When you see this on Heroku page -> search for first song -> press "aloita"
-6. Then just keep putting songs on the list
+2. Clone the frontend repository (youtube-mediaplayer)
+3. Add your own API_KEYS to the frontend
+4. Add your connection string to the .env file to the database
+5. Make production build from frontend and put the production build on the backend's build folder
+6. Push this into a service for i.e. Heroku
+7. Frontend is served from the build folder automatically
+8. When you see this on Heroku page -> search for first song -> press "aloita"
+9. Then just keep putting songs on the list
