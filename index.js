@@ -19,7 +19,6 @@ app.get('/all', (request, response) => {
 })
 
 app.post('/song', jsonParser, (request, response) => {
-    console.log("tulee")
     const body = request.body
     console.log(request.body.videoid)
     console.log(request.body)
