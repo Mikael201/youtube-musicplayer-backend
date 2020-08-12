@@ -20,8 +20,6 @@ app.get('/all', (request, response) => {
 
 app.post('/song', jsonParser, (request, response) => {
     const body = request.body
-    console.log(request.body.videoid)
-    console.log(request.body)
     const song = new Song({
         videoid: body.videoid,
         title: body.title
