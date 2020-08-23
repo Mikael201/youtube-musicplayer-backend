@@ -4,6 +4,7 @@ const Song = require('./Song')
 const app = express()
 let cors = require('cors')
 let bodyParser = require('body-parser')
+const sanitize = require('mongo-sanitize');
 let jsonParser = bodyParser.json()
 app.use(cors())
 app.use(express.static('build'))
@@ -21,8 +22,8 @@ app.get('/all', (request, response) => {
 app.post('/song', jsonParser, (request, response) => {
     const body = request.body
     const song = new Song({
-        videoid: body.videoid,
-        title: body.title
+        videoid: sanitize(body.videoid),
+        title: sanitize(body.title)
     })
     song.save()
         .then(savedScore => {
@@ -34,7 +35,7 @@ app.post('/song', jsonParser, (request, response) => {
 
 app.delete('/song/:videoid', (request, response) => {
     Song.deleteOne({
-        videoid: request.params.videoid
+        videoid: sanitize(request.params.videoid)
     }).then(data => {
         response.status(200).json(data)
     })
